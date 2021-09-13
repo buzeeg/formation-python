@@ -14,4 +14,6 @@ pip install -r req.txt
 ```
 
 #### POO
-See Rational.py
+- See [Rational.py](Rational.py)
+- See [Typing.py](Typing.py)
+- Static typing analysis : `mypy Rational.py Typing.py`
