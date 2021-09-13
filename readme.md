@@ -14,3 +14,4 @@ pip install -r req.txt
 ```
 
 #### POO
+See Rational.py
