@@ -61,9 +61,7 @@ PEP (Python Enhancement Proposals)
     ```
 - TDD -> interfaces from UML component diagram
 
-### Qt
-
-#### Qt intro
+### Qt intro
 - Qt :
   - IHM multiplatform
   - owner : Trolltech -> Nokia -> Digia -> The Qt Company
@@ -74,6 +72,10 @@ PEP (Python Enhancement Proposals)
   - PySide maintened by The Qt Company
 - PySide6 is modern and official binding
 
+### Qt Hello world
+- See [HelloWorld.py](qt/HelloWorld.py)
+- Styling with [CSS file](qt/styles.css)  
+  `python HelloWorld.py -stylesheet styles.css`
 
 
 

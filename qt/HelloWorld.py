@@ -19,20 +19,27 @@ class MyWindow(QMainWindow):
 
         # Create buttons
         self.__button1 = QPushButton("Button 1", self)
-        self.__button1.setGeometry(10, 10, 200, 30)
+        self.__button1.setGeometry(10, 210, 200, 30)
+        self.__button1.clicked.connect(self.slot1)
+        self.__button1.setToolTip("Super <u>bouton</u>")  # HTML support!
         self.__button2 = QPushButton("Button 2", self)
-        self.__button2.setGeometry(10, 50, 200, 30)
+        self.__button2.setGeometry(10, 250, 200, 30)
+        self.__button2.clicked.connect(self.slot2)
+        self.__button2.setToolTip("""Super <u>bouton</u><br/>
+                <ul>
+                    <li>First</li>
+                    <li>Second</li>
+                </ul><br/>
+                <img src="../iconsDL/file.png">
+                """)  # HTML support!
+        # self.__button2.setStyleSheet("background: red; color: white; border-radius: 20px 20px;")
 
         # Display
         self.__label1 = QLabel(self)
-        self.__label1.setGeometry(220, 10, 200, 30)
+        self.__label1.setGeometry(220, 210, 200, 30)
         self.__label1.setText(f"{datetime.datetime.now()}")
 
-        # Connect signals to slots
-        self.__button1.clicked.connect(self.slot1)
-        self.__button2.clicked.connect(self.slot2)
-
-    # Define slots
+    # Define slots to connect signals
     @Slot()
     def slot1(self):
         self.__label1.setText(f"{datetime.datetime.now()}")
@@ -43,6 +50,8 @@ class MyWindow(QMainWindow):
 
 
 if __name__ == '__main__':
+    sys.argv.append("-stylesheet")
+    sys.argv.append("styles.css")
     app = QApplication(sys.argv)
 
     myWindow = MyWindow()
