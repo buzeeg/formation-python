@@ -60,3 +60,20 @@ PEP (Python Enhancement Proposals)
     coverage report -m
     ```
 - TDD -> interfaces from UML component diagram
+
+### Qt
+
+#### Qt intro
+- Qt :
+  - IHM multiplatform
+  - owner : Trolltech -> Nokia -> Digia -> The Qt Company
+  - version based on C++ version
+  - Qt6 is last version, based on C++ ISO 2017
+- 2 main bindings between Python & Qt : PyQt & PySide
+  - PyQt original binding
+  - PySide maintened by The Qt Company
+- PySide6 is modern and official binding
+
+
+
+
