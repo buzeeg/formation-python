@@ -27,10 +27,10 @@ PEP (Python Enhancement Proposals)
 - PEP 20 : Zen of Python (architecture concepts)
 
 ### POO
-- See [Rational.py](Rational.py) (language, objects, typing)
-- See [Typing.py](Typing.py) (typing)
+- See [Rational.py](src/Rational.py) (language, objects, typing)
+- See [Typing.py](src/Typing.py) (typing)
 - Static typing analysis : `mypy Rational.py Typing.py`
-- See [Person.py](Person.py) (heritage)
+- See [Person.py](src/Person.py) (heritage)
 
 
 
@@ -42,11 +42,11 @@ PEP (Python Enhancement Proposals)
 - [Exceptions](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
 
 ### POO suite
-- See [TestExceptions.py](TestExceptions.py)
-- See [TestWith.py](TestWith.py)
+- See [TestExceptions.py](src/TestExceptions.py)
+- See [TestWith.py](src/TestWith.py)
 - Iterator implementation (for / while) using `__iter__` & `__next__`
 
 ### Testing
-- See [Usage.py](Usage.py) -> PyDoc for doc & DocTests for testing examples
+- See [Usage.py](src/Usage.py) -> PyDoc for doc & DocTests for testing examples
 - unittest (based on JUnit3)
 - 
