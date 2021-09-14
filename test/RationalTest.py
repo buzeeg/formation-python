@@ -17,6 +17,17 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(7, r.n)
         self.assertEqual(2, r.d)
 
+    @unittest.expectedFailure
+    def test_bad_denominator1(self):
+        Rational(1, 0)
+
+    def test_bad_denominator2(self):
+        with self.assertRaises(ValueError):
+            Rational(1, 0)
+
+        with self.assertRaises(TypeError):
+            Rational("toto", 1)
+
     def test_dead(self):
         # raise Exception("erreur")
         pass

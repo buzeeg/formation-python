@@ -62,6 +62,10 @@ if __name__ == '__main__':
     print(r1)
     # print(r1.__dict__)
 
+    # rfail = Rational(0, "toto")
+    # rfail = Rational("toto", 1)
+    # rfail = Rational(1, 0)
+
     # Typing tests
     r2 = Rational(den=4)
     print(r2)

@@ -48,5 +48,15 @@ PEP (Python Enhancement Proposals)
 
 ### Testing
 - See [Usage.py](src/Usage.py) -> PyDoc for doc & DocTests for testing examples
-- unittest (based on JUnit3)
-- 
+- See [RationalTest.py](test/RationalTest.py) -> unittest (based on JUnit3)
+- Tests :
+  1. unit test -> unittest (component testing)
+  2. integration test -> test communication between components
+  3. functional tests (system validation & verification)
+  4. acceptance tests (with customer)
+- CI -> test cov
+    ```
+    coverage run Rational.py
+    coverage report -m
+    ```
+- TDD -> interfaces from UML component diagram
