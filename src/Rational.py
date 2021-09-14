@@ -51,27 +51,28 @@ class Rational(object):
         self.d //= divisor
 
 
-# POO tests
-r1 = Rational(0, 1)
-print(r1)
-r1.n = 12
-r1.d = 5
-print(r1)
-# r1._Rational__d = 2
-print(r1)
-# print(r1.__dict__)
+if __name__ == '__main__':
+    # POO tests
+    r1 = Rational(0, 1)
+    print(r1)
+    r1.n = 12
+    r1.d = 5
+    print(r1)
+    # r1._Rational__d = 2
+    print(r1)
+    # print(r1.__dict__)
 
-# Typing tests
-r2 = Rational(den=4)
-print(r2)
-r3: Rational = Rational(1, 3)
-r4: Rational = Rational(2, 1)
-res: Rational = r3 + r4
-print(res)
-# dir(list)
-# dir(date)
-print(res.__dict__)
+    # Typing tests
+    r2 = Rational(den=4)
+    print(r2)
+    r3: Rational = Rational(1, 3)
+    r4: Rational = Rational(2, 1)
+    res: Rational = r3 + r4
+    print(res)
+    # dir(list)
+    # dir(date)
+    print(res.__dict__)
 
-toSimplify = Rational(256, 8)
-toSimplify.simplify()
-print(toSimplify)
+    toSimplify = Rational(256, 8)
+    toSimplify.simplify()
+    print(toSimplify)
