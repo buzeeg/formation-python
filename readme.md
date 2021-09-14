@@ -73,7 +73,7 @@ PEP (Python Enhancement Proposals)
 - PySide6 is modern and official binding
 
 ### Qt Hello world
-- See [HelloWorld.py](qt/HelloWorld.py)
+- See [HelloWorld.py](qt/QtHelloWorld.py)
 - Styling with [CSS file](qt/styles.css)  
   `python HelloWorld.py -stylesheet styles.css`
 
