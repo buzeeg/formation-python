@@ -44,4 +44,9 @@ PEP (Python Enhancement Proposals)
 ### POO suite
 - See [TestExceptions.py](TestExceptions.py)
 - See [TestWith.py](TestWith.py)
+- Iterator implementation (for / while) using `__iter__` & `__next__`
 
+### Testing
+- See [Usage.py](Usage.py) -> PyDoc for doc & DocTests for testing examples
+- unittest (based on JUnit3)
+- 
