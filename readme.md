@@ -43,4 +43,5 @@ PEP (Python Enhancement Proposals)
 
 ### POO suite
 - See [TestExceptions.py](TestExceptions.py)
+- See [TestWith.py](TestWith.py)
 
