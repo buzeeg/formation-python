@@ -1,9 +1,8 @@
 import sys
-import datetime
-
 from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon, QAction
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar
+from QButtonBlock import QButtonBlock
 
 
 class MyWindow(QMainWindow):
@@ -17,18 +16,7 @@ class MyWindow(QMainWindow):
         # Set window position
         self.move(50, 50)
 
-        # Create buttons
-        self.__button1 = QPushButton("Button 1", self)
-        self.__button1.setGeometry(10, 210, 200, 30)
-        self.__button1.clicked.connect(self.slot1)
-        self.__button2 = QPushButton("Button 2", self)
-        self.__button2.setGeometry(10, 250, 200, 30)
-        self.__button2.clicked.connect(self.slot2)
-
-        # Display
-        self.__label1 = QLabel(self)
-        self.__label1.setGeometry(220, 210, 200, 30)
-        self.__label1.setText(f"{datetime.datetime.now()}")
+        self.setCentralWidget(QButtonBlock())
 
         # Actions definition
         actNew = QAction(QIcon("../iconsDL/new.png"), "&New", self)
@@ -99,17 +87,16 @@ class MyWindow(QMainWindow):
         toolBar2.addAction(actCut)
         toolBar2.addAction(actPaste)
 
-        # StatusBar definition
-        self.statusBar().showMessage("Example of MenuBar with Python & Qt")
-
-    # Define slots to connect signals
-    @Slot()
-    def slot1(self):
-        self.__label1.setText(f"{datetime.datetime.now()}")
-
-    @Slot()
-    def slot2(self):
-        QMessageBox.information(self, "MegaExplorer", "Coucou")
+    # StatusBar definition
+    def createStatusBar(self):
+        status_bar = self.statusBar()
+        status_bar.showMessage("Example of MenuBar with Python & Qt")
+        progress = QProgressBar()
+        # QProgressBar.setMaximumHeight(progress, 2)
+        progress.setMaximumHeight(10)
+        progress.setMaximumWidth(200)
+        progress.setValue(66)
+        status_bar.addPermanentWidget(progress)
 
     @Slot()
     def about(self):
@@ -122,6 +109,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     myWindow = MyWindow()
+    myWindow.createStatusBar()
     myWindow.show()
 
     sys.exit(app.exec())
