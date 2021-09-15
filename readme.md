@@ -44,7 +44,7 @@ PEP (Python Enhancement Proposals)
 ### POO suite
 - See [TestExceptions.py](src/TestExceptions.py)
 - See [TestWith.py](src/TestWith.py)
-- Iterator implementation (for / while) using `__iter__` & `__next__`
+- Iterator implementation (`for` / `while`) using `__iter__` & `__next__`
 
 ### Testing
 - See [Usage.py](src/Usage.py) -> PyDoc for doc & DocTests for testing examples
@@ -76,6 +76,8 @@ PEP (Python Enhancement Proposals)
 - See [HelloWorld.py](qt/QtHelloWorld.py)
 - Styling with [CSS file](qt/styles.css)  
   `python HelloWorld.py -stylesheet styles.css`
+- See [QAppWithToolbars.py](qt/QAppWithToolbars.py)
 
 
+# Day 3
 
