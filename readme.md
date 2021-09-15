@@ -83,5 +83,5 @@ PEP (Python Enhancement Proposals)
 
 ### Qt Widgets, Layouts
 - See [QAppWithToolbars.py](qt/QAppWithToolbars.py) and [QButtonBlock.py](qt/QButtonBlock.py) : refactor, add central widget, context menu
-- See [DBPropertiesDialog.py](qt/DBPropertiesDialog.py)
-- 
+- See [DBPropertiesDialog.py](qt/DBPropertiesDialog.py) : BoxLayouts
+- See [CalcGridDialog.py](qt/CalcGridDialog.py) : GridLayout

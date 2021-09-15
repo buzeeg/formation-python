@@ -3,6 +3,7 @@ from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar
 
+from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
 from QButtonBlock import QButtonBlock
 
@@ -40,6 +41,7 @@ class MyWindow(QMainWindow):
         self.actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
         self.actSave.setStatusTip("Save file")
         self.actSave.setShortcut("Ctrl+S")
+        self.actSave.triggered.connect(self.calcDialog)
         self.actExit = QAction(QIcon("../iconsDL/exit.png"), "E&xit", self)
         self.actExit.setShortcut("Alt+F4")
         self.actExit.setStatusTip("Exit app")
@@ -119,6 +121,10 @@ class MyWindow(QMainWindow):
     @Slot()
     def connectDialog(self):
         DBPropertiesDialog(self).show()
+
+    @Slot()
+    def calcDialog(self):
+        CalcGridDialog(self).show()
 
 
 if __name__ == '__main__':
