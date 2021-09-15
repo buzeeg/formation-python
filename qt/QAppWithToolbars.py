@@ -28,7 +28,15 @@ class MyWindow(QMainWindow):
         self.actCopy = None
         self.actCut = None
         self.actPaste = None
+        self.actConnect = None
+        self.actCalc = None
         self.actAbout = None
+
+        self.createActions()
+        self.createMenuBar()
+        self.createToolBar()
+        self.createStatusBar()
+        self.setCentralWidget(QButtonBlock(self))
 
     # Actions definition
     def createActions(self):
@@ -37,11 +45,9 @@ class MyWindow(QMainWindow):
         self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
         self.actOpen.setShortcut("Ctrl+O")
         self.actOpen.setStatusTip("Open file")
-        self.actOpen.triggered.connect(self.connectDialog)
         self.actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
         self.actSave.setStatusTip("Save file")
         self.actSave.setShortcut("Ctrl+S")
-        self.actSave.triggered.connect(self.calcDialog)
         self.actExit = QAction(QIcon("../iconsDL/exit.png"), "E&xit", self)
         self.actExit.setShortcut("Alt+F4")
         self.actExit.setStatusTip("Exit app")
@@ -61,6 +67,12 @@ class MyWindow(QMainWindow):
         self.actPaste = QAction(QIcon("../iconsDL/paste.png"), "&Paste", self)
         self.actPaste.setStatusTip("Paste")
         self.actPaste.setShortcut("Ctrl+V")
+        self.actConnect = QAction(QIcon("../iconsDL/SQL.png"), "&Connect", self)
+        self.actConnect.setStatusTip("Connect database")
+        self.actConnect.triggered.connect(self.connectDialog)
+        self.actCalc = QAction(QIcon(), "C&alc", self)
+        self.actCalc.setStatusTip("Launch calculator")
+        self.actCalc.triggered.connect(self.calcDialog)
         self.actAbout = QAction(QIcon("../iconsDL/about_(info).png"), "&About...", self)
         self.actAbout.setStatusTip("About")
         self.actAbout.triggered.connect(self.about)
@@ -84,6 +96,9 @@ class MyWindow(QMainWindow):
         edit.addAction(self.actCopy)
         edit.addAction(self.actCut)
         edit.addAction(self.actPaste)
+        datab = menuBar.addMenu("&Database")
+        datab.addAction(self.actConnect)
+        datab.addAction(self.actCalc)
         helpp = menuBar.addMenu("&Help")
         file.setStatusTip("Help menu")
         helpp.addAction(self.actAbout)
@@ -120,6 +135,7 @@ class MyWindow(QMainWindow):
 
     @Slot()
     def connectDialog(self):
+        pass
         DBPropertiesDialog(self).show()
 
     @Slot()
@@ -133,11 +149,6 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     myWindow = MyWindow()
-    myWindow.createActions()
-    myWindow.createMenuBar()
-    myWindow.createToolBar()
-    myWindow.createStatusBar()
-    myWindow.setCentralWidget(QButtonBlock(myWindow))
     myWindow.show()
 
     sys.exit(app.exec())

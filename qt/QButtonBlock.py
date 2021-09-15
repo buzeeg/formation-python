@@ -24,16 +24,16 @@ class QButtonBlock(QWidget):
         self.__label1.setText(f"{datetime.datetime.now()}")
 
         # PopupMenu
-        self.popupMenu = QMenu("Standard PopupMenu", self)
-        self.popupMenu.addAction(parent.actOpen)
-        self.popupMenu.addAction(self.topLevelWidget().actSave)
-        self.popupMenu.addSeparator()
-        self.popupMenu.addAction(parent.actExit)
+        # self.__popupMenu = QMenu("Demo PopupMenu")
+        # self.__popupMenu.addAction(parent.actOpen)
+        # self.__popupMenu.addAction(self.topLevelWidget().actSave)
+        # self.__popupMenu.addSeparator()
+        # self.__popupMenu.addAction(parent.actExit)
 
     # Override mousePressEvent of QWidget
-    def mousePressEvent(self, mouseEvent: QMouseEvent):
-        if mouseEvent.button() == Qt.RightButton:
-            self.popupMenu.popup(QCursor.pos())
+    # def mousePressEvent(self, mouseEvent: QMouseEvent):
+    #     if mouseEvent.button() == Qt.RightButton:
+    #         self.__popupMenu.popup(QCursor.pos())
 
     # Define slots to connect signals
     @Slot()
@@ -42,4 +42,5 @@ class QButtonBlock(QWidget):
 
     @Slot()
     def slot2(self):
-        QMessageBox.information(self, "MegaExplorer", "Coucou")
+        self.__label1.setText(f"{datetime.datetime.now()}")
+        # QMessageBox.information(self.topLevelWidget(), "MegaExplorer", "Coucou")
