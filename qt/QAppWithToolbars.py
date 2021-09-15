@@ -2,6 +2,8 @@ import sys
 from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar
+
+from DBPropertiesDialog import DBPropertiesDialog
 from QButtonBlock import QButtonBlock
 
 
@@ -34,17 +36,7 @@ class MyWindow(QMainWindow):
         self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
         self.actOpen.setShortcut("Ctrl+O")
         self.actOpen.setStatusTip("Open file")
-        # actOpen.triggered.connect(self.open)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen.triggered.connect(self.connectDialog)
         self.actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
         self.actSave.setStatusTip("Save file")
         self.actSave.setShortcut("Ctrl+S")
@@ -124,10 +116,14 @@ class MyWindow(QMainWindow):
     def about(self):
         QMessageBox.about(self, "MegaExplorer", "Voici la v1")
 
+    @Slot()
+    def connectDialog(self):
+        DBPropertiesDialog(self).show()
+
 
 if __name__ == '__main__':
-    sys.argv.append("-stylesheet")
-    sys.argv.append("styles.css")
+    # sys.argv.append("-stylesheet")
+    # sys.argv.append("styles.css")
     app = QApplication(sys.argv)
 
     myWindow = MyWindow()
