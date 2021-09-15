@@ -73,15 +73,17 @@ PEP (Python Enhancement Proposals)
 - PySide6 is modern and official binding
 
 ### Qt Hello world
-- See [HelloWorld.py](qt/QtHelloWorld.py)
+- See [HelloWorld.py](qt/HelloWorld.py)
 - Styling with [CSS file](qt/styles.css)  
   `python HelloWorld.py -stylesheet styles.css`
-- See [QAppWithToolbars.py](qt/QAppWithToolbars.py)
+- See [QAppWithToolbars.py](qt/AppWithToolbars.py)
 
 
 # Day 3
 
 ### Qt Widgets, Layouts
-- See [QAppWithToolbars.py](qt/QAppWithToolbars.py) and [QButtonBlock.py](qt/ButtonBlock.py) : refactor, add central widget, context menu
+- See [QAppWithToolbars.py](qt/AppWithToolbars.py) and [QButtonBlock.py](qt/ButtonBlock.py) : refactor, add central widget, context menu
 - See [DBPropertiesDialog.py](qt/DBPropertiesDialog.py) : BoxLayouts, QFormLayout
 - See [CalcGridDialog.py](qt/CalcGridDialog.py) : GridLayout
+- Signal/Slot (publisher/ubscriber), Events (override)
+- 

@@ -18,6 +18,7 @@ class DBPropertiesDialog(QDialog):
         # Create buttons
         ok = QPushButton("Ok")
         ok.clicked.connect(self.okSlot)
+        ok.clicked.connect(self.okSlot2)  # Register another subscriber is possible
         cancel = QPushButton("Cancel")
         cancel.clicked.connect(self.cancelSlot)
 
@@ -108,6 +109,10 @@ class DBPropertiesDialog(QDialog):
             "password": str(self.__txt_password.text().strip()),
         }
         print(confJson)
+
+    @Slot()
+    def okSlot2(self):
+        print("Ok")
 
     @Slot()
     def cancelSlot(self):
