@@ -5,7 +5,7 @@ from PySide6.QtGui import QMouseEvent, Qt, QCursor
 from PySide6.QtWidgets import QWidget, QPushButton, QLabel, QMessageBox, QMenu
 
 
-class QButtonBlock(QWidget):
+class ButtonBlock(QWidget):
 
     def __init__(self, parent):
         super().__init__(parent)

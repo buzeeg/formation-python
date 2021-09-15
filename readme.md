@@ -82,6 +82,6 @@ PEP (Python Enhancement Proposals)
 # Day 3
 
 ### Qt Widgets, Layouts
-- See [QAppWithToolbars.py](qt/QAppWithToolbars.py) and [QButtonBlock.py](qt/QButtonBlock.py) : refactor, add central widget, context menu
+- See [QAppWithToolbars.py](qt/QAppWithToolbars.py) and [QButtonBlock.py](qt/ButtonBlock.py) : refactor, add central widget, context menu
 - See [DBPropertiesDialog.py](qt/DBPropertiesDialog.py) : BoxLayouts, QFormLayout
 - See [CalcGridDialog.py](qt/CalcGridDialog.py) : GridLayout

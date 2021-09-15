@@ -95,12 +95,19 @@ class DBPropertiesDialog(QDialog):
         ping_status = (self.__txt_host.text().strip() != "" or not self.__txt_host.isEnabled()) \
                 and (self.__txt_database.text().strip() != "" or not self.__txt_database.isEnabled()) \
                 and (self.__txt_login.text().strip() != "" or not self.__txt_login.isEnabled())
-        print(ping_status)
         self.__pingbutton.setEnabled(ping_status)
 
     @Slot()
     def okSlot(self):
-        print("ok")
+        confJson = {
+            "type": str(self.__txt_type.currentText().strip()),
+            "host": str(self.__txt_host.text().strip()),
+            "port": str(self.__txt_port.text().strip()),
+            "database": str(self.__txt_database.text().strip()),
+            "login": str(self.__txt_login.text().strip()),
+            "password": str(self.__txt_password.text().strip()),
+        }
+        print(confJson)
 
     @Slot()
     def cancelSlot(self):

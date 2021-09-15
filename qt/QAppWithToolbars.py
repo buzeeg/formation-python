@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressB
 
 from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
-from QButtonBlock import QButtonBlock
+from ButtonBlock import ButtonBlock
 
 
 class MyWindow(QMainWindow):
@@ -36,7 +36,7 @@ class MyWindow(QMainWindow):
         self.createMenuBar()
         self.createToolBar()
         self.createStatusBar()
-        self.setCentralWidget(QButtonBlock(self))
+        self.setCentralWidget(ButtonBlock(self))
 
     # Actions definition
     def createActions(self):
