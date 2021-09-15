@@ -15,77 +15,99 @@ class MyWindow(QMainWindow):
 
         # Set window position
         self.move(50, 50)
+        # Init attributes
+        self.actNew = None
+        self.actOpen = None
+        self.actSave = None
+        self.actExit = None
+        self.actUndo = None
+        self.actRedo = None
+        self.actCopy = None
+        self.actCut = None
+        self.actPaste = None
+        self.actAbout = None
 
-        self.setCentralWidget(QButtonBlock())
-
-        # Actions definition
-        actNew = QAction(QIcon("../iconsDL/new.png"), "&New", self)
-        actNew.setStatusTip("New file")
-        actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
-        actOpen.setShortcut("Ctrl+O")
-        actOpen.setStatusTip("Open file")
+    # Actions definition
+    def createActions(self):
+        self.actNew = QAction(QIcon("../iconsDL/new.png"), "&New", self)
+        self.actNew.setStatusTip("New file")
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen.setShortcut("Ctrl+O")
+        self.actOpen.setStatusTip("Open file")
         # actOpen.triggered.connect(self.open)
-        actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
-        actSave.setStatusTip("Save file")
-        actSave.setShortcut("Ctrl+S")
-        actExit = QAction(QIcon("../iconsDL/exit.png"), "E&xit", self)
-        actExit.setShortcut("Alt+F4")
-        actExit.setStatusTip("Exit app")
-        actExit.triggered.connect(self.close)
-        actUndo = QAction(QIcon("../iconsDL/undo.png"), "&Undo", self)
-        actUndo.setStatusTip("Undo")
-        actUndo.setShortcut("Ctrl+Z")
-        actRedo = QAction(QIcon("../iconsDL/redo.png"), "&Redo", self)
-        actRedo.setStatusTip("Redo")
-        actRedo.setShortcut("Ctrl+Y")
-        actCopy = QAction(QIcon("../iconsDL/copy.png"), "&Copy", self)
-        actCopy.setStatusTip("Copy")
-        actCopy.setShortcut("Ctrl+C")
-        actCut = QAction(QIcon("../iconsDL/cut.png"), "Cu&t", self)
-        actCut.setStatusTip("Cut")
-        actCut.setShortcut("Ctrl+X")
-        actPaste = QAction(QIcon("../iconsDL/paste.png"), "&Paste", self)
-        actPaste.setStatusTip("Paste")
-        actPaste.setShortcut("Ctrl+V")
-        actAbout = QAction(QIcon("../iconsDL/about_(info).png"), "&About...", self)
-        actAbout.setStatusTip("About")
-        actAbout.triggered.connect(self.about)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
+        self.actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
+        self.actSave.setStatusTip("Save file")
+        self.actSave.setShortcut("Ctrl+S")
+        self.actExit = QAction(QIcon("../iconsDL/exit.png"), "E&xit", self)
+        self.actExit.setShortcut("Alt+F4")
+        self.actExit.setStatusTip("Exit app")
+        self.actExit.triggered.connect(self.close)
+        self.actUndo = QAction(QIcon("../iconsDL/undo.png"), "&Undo", self)
+        self.actUndo.setStatusTip("Undo")
+        self.actUndo.setShortcut("Ctrl+Z")
+        self.actRedo = QAction(QIcon("../iconsDL/redo.png"), "&Redo", self)
+        self.actRedo.setStatusTip("Redo")
+        self.actRedo.setShortcut("Ctrl+Y")
+        self.actCopy = QAction(QIcon("../iconsDL/copy.png"), "&Copy", self)
+        self.actCopy.setStatusTip("Copy")
+        self.actCopy.setShortcut("Ctrl+C")
+        self.actCut = QAction(QIcon("../iconsDL/cut.png"), "Cu&t", self)
+        self.actCut.setStatusTip("Cut")
+        self.actCut.setShortcut("Ctrl+X")
+        self.actPaste = QAction(QIcon("../iconsDL/paste.png"), "&Paste", self)
+        self.actPaste.setStatusTip("Paste")
+        self.actPaste.setShortcut("Ctrl+V")
+        self.actAbout = QAction(QIcon("../iconsDL/about_(info).png"), "&About...", self)
+        self.actAbout.setStatusTip("About")
+        self.actAbout.triggered.connect(self.about)
 
-        # MenuBar definition
+    # MenuBar definition
+    def createMenuBar(self):
         menuBar = self.menuBar()
         file = menuBar.addMenu("&File")
         file.setStatusTip("File menu")
-        file.addAction(actNew)
+        file.addAction(self.actNew)
         file.addSeparator()
-        file.addAction(actOpen)
-        file.addAction(actSave)
+        file.addAction(self.actOpen)
+        file.addAction(self.actSave)
         file.addSeparator()
-        file.addAction(actExit)
+        file.addAction(self.actExit)
         edit = menuBar.addMenu("&Edit")
         file.setStatusTip("Edit menu")
-        edit.addAction(actUndo)
-        edit.addAction(actRedo)
+        edit.addAction(self.actUndo)
+        edit.addAction(self.actRedo)
         edit.addSeparator()
-        edit.addAction(actCopy)
-        edit.addAction(actCut)
-        edit.addAction(actPaste)
+        edit.addAction(self.actCopy)
+        edit.addAction(self.actCut)
+        edit.addAction(self.actPaste)
         helpp = menuBar.addMenu("&Help")
         file.setStatusTip("Help menu")
-        helpp.addAction(actAbout)
+        helpp.addAction(self.actAbout)
 
-        # ToolBar definition
+    # ToolBar definition
+    def createToolBar(self):
         toolBar1 = self.addToolBar("File Toolbar")
-        toolBar1.addAction(actNew)
+        toolBar1.addAction(self.actNew)
         toolBar1.addSeparator()
-        toolBar1.addAction(actOpen)
-        toolBar1.addAction(actSave)
+        toolBar1.addAction(self.actOpen)
+        toolBar1.addAction(self.actSave)
         toolBar2 = self.addToolBar("Edit Toolbar")
-        toolBar2.addAction(actUndo)
-        toolBar2.addAction(actRedo)
+        toolBar2.addAction(self.actUndo)
+        toolBar2.addAction(self.actRedo)
         toolBar2.addSeparator()
-        toolBar2.addAction(actCopy)
-        toolBar2.addAction(actCut)
-        toolBar2.addAction(actPaste)
+        toolBar2.addAction(self.actCopy)
+        toolBar2.addAction(self.actCut)
+        toolBar2.addAction(self.actPaste)
 
     # StatusBar definition
     def createStatusBar(self):
@@ -109,7 +131,11 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     myWindow = MyWindow()
+    myWindow.createActions()
+    myWindow.createMenuBar()
+    myWindow.createToolBar()
     myWindow.createStatusBar()
+    myWindow.setCentralWidget(QButtonBlock(myWindow))
     myWindow.show()
 
     sys.exit(app.exec())

@@ -1,12 +1,14 @@
 import datetime
 
 from PySide6.QtCore import Slot
-from PySide6.QtWidgets import QWidget, QPushButton, QLabel, QMessageBox
+from PySide6.QtGui import QMouseEvent, Qt, QCursor
+from PySide6.QtWidgets import QWidget, QPushButton, QLabel, QMessageBox, QMenu
 
 
 class QButtonBlock(QWidget):
-    def __init__(self):
-        super().__init__()
+
+    def __init__(self, parent):
+        super().__init__(parent)
 
         # Create buttons
         self.__button1 = QPushButton("Button 1", self)
@@ -20,6 +22,18 @@ class QButtonBlock(QWidget):
         self.__label1 = QLabel(self)
         self.__label1.setGeometry(204, 2, 200, 30)
         self.__label1.setText(f"{datetime.datetime.now()}")
+
+        # PopupMenu
+        self.popupMenu = QMenu("Standard PopupMenu", self)
+        self.popupMenu.addAction(parent.actOpen)
+        self.popupMenu.addAction(self.topLevelWidget().actSave)
+        self.popupMenu.addSeparator()
+        self.popupMenu.addAction(parent.actExit)
+
+    # Override mousePressEvent of QWidget
+    def mousePressEvent(self, mouseEvent: QMouseEvent):
+        if mouseEvent.button() == Qt.RightButton:
+            self.popupMenu.popup(QCursor.pos())
 
     # Define slots to connect signals
     @Slot()
