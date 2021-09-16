@@ -81,9 +81,23 @@ PEP (Python Enhancement Proposals)
 
 # Day 3
 
-### Qt Widgets, Layouts
+### Qt Widgets intro, Layouts
 - See [QAppWithToolbars.py](qt/AppWithToolbars.py) and [QButtonBlock.py](qt/ButtonBlock.py) : refactor, add central widget, context menu
 - See [DBPropertiesDialog.py](qt/DBPropertiesDialog.py) : BoxLayouts, QFormLayout
 - See [CalcGridDialog.py](qt/CalcGridDialog.py) : GridLayout
-- Signal/Slot (publisher/ubscriber), Events (override)
-- 
+- Signal/Slot (publisher/subscriber), Events (override)
+  - Slots historic syntax (C) :
+    ``` python
+      QObject.connect(self, __button1, SIGNAL('clicked()'), self.slot1)
+    ```
+  - Slots modern syntax (Python) :
+    ``` python
+      self.__button1.clicked.connect(self.slot1)
+    ```
+
+# Day 4
+
+### Reminders
+- Static members & custom signals - see [StaticMembers.py](src/StaticMembers.py), FileWatcher demo (using QThread)
+
+### Qt Widgets
