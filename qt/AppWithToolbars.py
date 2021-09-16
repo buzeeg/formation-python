@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressB
 from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
 from ButtonBlock import ButtonBlock
+from RGBSelectorDialog import RGBSelectorDialog
 
 
 class MyWindow(QMainWindow):
@@ -30,6 +31,7 @@ class MyWindow(QMainWindow):
         self.actPaste = None
         self.actConnect = None
         self.actCalc = None
+        self.actRGB = None
         self.actAbout = None
 
         self.createActions()
@@ -73,6 +75,9 @@ class MyWindow(QMainWindow):
         self.actCalc = QAction(QIcon(), "C&alc", self)
         self.actCalc.setStatusTip("Launch calculator")
         self.actCalc.triggered.connect(self.calcDialog)
+        self.actRGB = QAction(QIcon(), "&RGB Selector", self)
+        self.actRGB.setStatusTip("Launch RGB selector")
+        self.actRGB.triggered.connect(self.rgbDialog)
         self.actAbout = QAction(QIcon("../iconsDL/about_(info).png"), "&About...", self)
         self.actAbout.setStatusTip("About")
         self.actAbout.triggered.connect(self.about)
@@ -89,18 +94,19 @@ class MyWindow(QMainWindow):
         file.addSeparator()
         file.addAction(self.actExit)
         edit = menuBar.addMenu("&Edit")
-        file.setStatusTip("Edit menu")
+        edit.setStatusTip("Edit menu")
         edit.addAction(self.actUndo)
         edit.addAction(self.actRedo)
         edit.addSeparator()
         edit.addAction(self.actCopy)
         edit.addAction(self.actCut)
         edit.addAction(self.actPaste)
-        datab = menuBar.addMenu("&Database")
-        datab.addAction(self.actConnect)
-        datab.addAction(self.actCalc)
+        op = menuBar.addMenu("&Operations")
+        op.addAction(self.actConnect)
+        op.addAction(self.actCalc)
+        op.addAction(self.actRGB)
         helpp = menuBar.addMenu("&Help")
-        file.setStatusTip("Help menu")
+        helpp.setStatusTip("Help menu")
         helpp.addAction(self.actAbout)
 
     # ToolBar definition
@@ -135,12 +141,15 @@ class MyWindow(QMainWindow):
 
     @Slot()
     def connectDialog(self):
-        pass
         DBPropertiesDialog(self).show()
 
     @Slot()
     def calcDialog(self):
         CalcGridDialog(self).show()
+
+    @Slot()
+    def rgbDialog(self):
+        RGBSelectorDialog(self).show()
 
 
 if __name__ == '__main__':

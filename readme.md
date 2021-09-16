@@ -101,3 +101,5 @@ PEP (Python Enhancement Proposals)
 - Static members & custom signals - see [StaticMembers.py](src/StaticMembers.py), FileWatcher demo (using QThread)
 
 ### Qt Widgets
+- QRadioButton & QGroupBox, QProgressBar, QSlider
+- RGB demo with sliders - see [RBGSelectorDisplay.py](qt/RBGSelectorDisplay.py)
