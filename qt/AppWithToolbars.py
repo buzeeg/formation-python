@@ -5,6 +5,7 @@ from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar, QTabWidget, QSplitter, QTreeView, \
     QMdiArea, QInputDialog, QFileDialog
 
+from SqlTableView import SqlTableView
 from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
 from ButtonBlock import ButtonBlock
@@ -192,7 +193,8 @@ class MyWindow(QMainWindow):
     def newDoc(self):
         text, ok = QInputDialog.getText(self, "New doc", "Enter doc name:")
         if ok:
-            doc1 = MdiSubWindow(text, self)
+            doc1 = SqlTableView()
+            # doc1 = MdiSubWindow(text, self)
             self.__mdiArea.addSubWindow(doc1)
             doc1.show()
 

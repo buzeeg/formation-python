@@ -107,4 +107,5 @@ PEP (Python Enhancement Proposals)
 - Standard Dialogs : QMessageBox, QInputDialog, QFileDialog, QColorDialog, ... (see app)
 
 ### Qt Views
-- QListView, QTableView, QTreeView
+- MVC pattern -> QListView, QTableView, QTreeView
+  - See [SqlTableModel.py](qt/SqlTableModel.py) & [SqlTableView.py](qt/SqlTableView.py)
