@@ -103,3 +103,5 @@ PEP (Python Enhancement Proposals)
 ### Qt Widgets
 - QRadioButton & QGroupBox, QProgressBar, QSlider
 - RGB demo with sliders - see [RBGSelectorDisplay.py](qt/RBGSelectorDisplay.py)
+- Mdi interface (see app)
+- 
