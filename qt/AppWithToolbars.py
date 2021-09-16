@@ -3,7 +3,7 @@ import sys
 from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar, QTabWidget, QSplitter, QTreeView, \
-    QMdiArea
+    QMdiArea, QInputDialog, QFileDialog
 
 from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
@@ -60,6 +60,7 @@ class MyWindow(QMainWindow):
         self.actOpen = QAction(QIcon("../iconsDL/open.png"), "&Open...", self)
         self.actOpen.setShortcut("Ctrl+O")
         self.actOpen.setStatusTip("Open file")
+        self.actOpen.triggered.connect(self.openDoc)
         self.actSave = QAction(QIcon("../iconsDL/save.png"), "&Save", self)
         self.actSave.setStatusTip("Save file")
         self.actSave.setShortcut("Ctrl+S")
@@ -189,9 +190,29 @@ class MyWindow(QMainWindow):
 
     @Slot()
     def newDoc(self):
-        doc1 = MdiSubWindow("New doc", self)
-        self.__mdiArea.addSubWindow(doc1)
-        doc1.show()
+        text, ok = QInputDialog.getText(self, "New doc", "Enter doc name:")
+        if ok:
+            doc1 = MdiSubWindow(text, self)
+            self.__mdiArea.addSubWindow(doc1)
+            doc1.show()
+
+    @Slot()
+    def openDoc(self):
+        filenameInfos = QFileDialog.getOpenFileName(self, "Open file", "/home")
+        # QMessageBox.information(self, "Fichier choisi", str(filenameInfos))
+
+        filename = filenameInfos[0]
+        if len(filename.strip()) > 0:
+            try:
+                doc1 = MdiSubWindow(filename, self)
+                with open(filename, "r") as f:
+                    doc1.setText(f.read())
+                self.__mdiArea.addSubWindow(doc1)
+                doc1.show()
+            except OSError:
+                QMessageBox.information(self, "File error", "File " + filename + " cannot be opened")
+            except ValueError:
+                QMessageBox.information(self, "File error", "File " + filename + " cannot be read")
 
     @Slot()
     def closeDoc(self):
@@ -226,6 +247,15 @@ class MyWindow(QMainWindow):
     @Slot()
     def rgbDialog(self):
         RGBSelectorDialog(self).show()
+
+    # Override windows closeEvent
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, "Message", "Are you sure you wanna quiiiit??",
+                                     QMessageBox.Yes, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
 
 if __name__ == '__main__':

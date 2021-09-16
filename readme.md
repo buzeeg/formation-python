@@ -100,8 +100,11 @@ PEP (Python Enhancement Proposals)
 ### Reminders
 - Static members & custom signals - see [StaticMembers.py](src/StaticMembers.py), FileWatcher demo (using QThread)
 
-### Qt Widgets
+### Qt Widgets & Dialogs
 - QRadioButton & QGroupBox, QProgressBar, QSlider
 - RGB demo with sliders - see [RBGSelectorDisplay.py](qt/RBGSelectorDisplay.py)
-- Mdi interface (see app)
-- 
+- Splitter & Mdi interface (see app)
+- Standard Dialogs : QMessageBox, QInputDialog, QFileDialog, QColorDialog, ... (see app)
+
+### Qt Views
+- QListView, QTableView, QTreeView
