@@ -141,3 +141,5 @@ PEP (Python Enhancement Proposals)
   - Matplotlib : data display
   - pandas : statistics
 - Not compatible to PySide6 -> PySide2
+- Basic graphs : [sinus.py](matplotlib/sinus.py), [Mesh.py](matplotlib/Mesh.py)
+- 
