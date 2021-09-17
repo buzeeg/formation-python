@@ -102,10 +102,17 @@ PEP (Python Enhancement Proposals)
 
 ### Qt Widgets & Dialogs
 - QRadioButton & QGroupBox, QProgressBar, QSlider
-- RGB demo with sliders - see [RBGSelectorDisplay.py](qt/RBGSelectorDisplay.py)
+- RGB demo with sliders - see [RGBSelectorDisplay.py](qt/RGBSelectorDialog.py)
 - Splitter & Mdi interface (see app)
 - Standard Dialogs : QMessageBox, QInputDialog, QFileDialog, QColorDialog, ... (see app)
 
 ### Qt Views
 - MVC pattern -> QListView, QTableView, QTreeView
   - See [SqlTableModel.py](qt/SqlTableModel.py) & [SqlTableView.py](qt/SqlTableView.py)
+
+# Day 5
+
+### Qt with DB
+- MariaDB install
+- New SQL file : [database.sql](data/database.sql)
+- 
