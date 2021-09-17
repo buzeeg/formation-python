@@ -1,10 +1,11 @@
 import sys
 
-from PySide6.QtCore import Slot
+from PySide6.QtCore import Slot, QDir
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QProgressBar, QTabWidget, QSplitter, QTreeView, \
-    QMdiArea, QInputDialog, QFileDialog
+    QMdiArea, QInputDialog, QFileDialog, QFileSystemModel
 
+from DatabaseTreeModel import DatabaseTreeView
 from SqlTableView import SqlTableView
 from CalcGridDialog import CalcGridDialog
 from DBPropertiesDialog import DBPropertiesDialog
@@ -175,13 +176,21 @@ class MyWindow(QMainWindow):
         self.__mdiArea = QMdiArea()
 
         # Navigation area
+        file_model = QFileSystemModel()
+        file_model.setRootPath(QDir().currentPath())
+        file_tree_view = QTreeView()
+        file_tree_view.setModel(file_model)
+
+        database_view = DatabaseTreeView()
+        database_view.open_table.connect(self.showTable)
+
         tabWidget = QTabWidget()
         tabWidget.setTabPosition(QTabWidget.South)
         tabWidget.setMinimumWidth(220)
-        tabWidget.addTab(QTreeView(), "File System")
-        tabWidget.addTab(QTreeView(), "Database")
+        tabWidget.addTab(file_tree_view, "File System")
+        tabWidget.addTab(database_view, "Database")
         tabWidget.addTab(ButtonBlock(self), "Buttons")
-        tabWidget.setCurrentIndex(2)
+        tabWidget.setCurrentIndex(1)
 
         # Top container
         splitter = QSplitter()
@@ -215,6 +224,12 @@ class MyWindow(QMainWindow):
                 QMessageBox.information(self, "File error", "File " + filename + " cannot be opened")
             except ValueError:
                 QMessageBox.information(self, "File error", "File " + filename + " cannot be read")
+
+    @Slot(str)
+    def showTable(self, tableName):
+        table = SqlTableView(tableName)
+        self.__mdiArea.addSubWindow(table)
+        table.show()
 
     @Slot()
     def closeDoc(self):

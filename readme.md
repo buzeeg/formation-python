@@ -121,4 +121,6 @@ PEP (Python Enhancement Proposals)
     - Django Orm
     - Sql Alchemy
 - Driver MySQL/Maria : https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
+- See [DatabaseManager.py](qt/DatabaseManager.py)
+- Data display in main app using New Document : see [QAppWithToolbars.py](qt/AppWithToolbars.py)
 - 
