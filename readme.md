@@ -133,3 +133,11 @@ PEP (Python Enhancement Proposals)
 - Qt Designer : see [DBPropDlg.ui](qt/ui/DBPropDlg.ui)
 - Python code gen : `pyside6-uic qt\ui\DBPropDlg.ui >qt\ui\DBPropDlg.py`
 - Integration in application : using heritage or aggregation (`Ui_Dialog.setupUi`)
+
+### SciPy stack
+- SciPy stack : for scientific computing (matlab replace)
+  - NumPy : numeric computing
+  - SciPy library : algorithmic
+  - Matplotlib : data display
+  - pandas : statistics
+- Not compatible to PySide6 -> PySide2
