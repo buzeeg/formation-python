@@ -142,4 +142,4 @@ PEP (Python Enhancement Proposals)
   - pandas : statistics
 - Not compatible to PySide6 -> PySide2
 - Basic graphs : [sinus.py](matplotlib/sinus.py), [Mesh.py](matplotlib/Mesh.py)
-- 
+- Integration in QApp : [CurveWindow.py](matplotlib/CurveWindow.py)
