@@ -112,7 +112,7 @@ PEP (Python Enhancement Proposals)
 
 # Day 5
 
-### Qt with DB
+### Qt with DB, Models & View
 - MariaDB install
 - SQL test data : [database.sql](data/database.sql)
 - Python SQL interaction :
@@ -123,4 +123,4 @@ PEP (Python Enhancement Proposals)
 - Driver MySQL/Maria : https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 - See [DatabaseManager.py](qt/DatabaseManager.py)
 - Data display in main app using New Document : see [QAppWithToolbars.py](qt/AppWithToolbars.py)
-- 
+- Model with multiple Views [Models.py](qt/Models.py)
