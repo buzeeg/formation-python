@@ -124,3 +124,12 @@ PEP (Python Enhancement Proposals)
 - See [DatabaseManager.py](qt/DatabaseManager.py)
 - Data display in main app using New Document : see [QAppWithToolbars.py](qt/AppWithToolbars.py)
 - Model with multiple Views [Models.py](qt/Models.py)
+
+### Custom widget
+- Draw custom widget by overriding paintEvent method and using QPainter object
+
+### Qt Designer
+- Qt Creator (C++ & Python) -> IDE
+- Qt Designer : see [DBPropDlg.ui](qt/ui/DBPropDlg.ui)
+- Python code gen : `pyside6-uic qt\ui\DBPropDlg.ui >qt\ui\DBPropDlg.py`
+- Integration in application : using heritage or aggregation (`Ui_Dialog.setupUi`)
