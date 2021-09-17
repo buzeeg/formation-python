@@ -114,5 +114,11 @@ PEP (Python Enhancement Proposals)
 
 ### Qt with DB
 - MariaDB install
-- New SQL file : [database.sql](data/database.sql)
+- SQL test data : [database.sql](data/database.sql)
+- Python SQL interaction :
+  - Sql direct orders (base API), including sqlite3 server & driver
+  - ORM (cf [Koor.fr/Accès aux données en Python](https://koor.fr/Python/SupportPythonData/slide1.wp))
+    - Django Orm
+    - Sql Alchemy
+- Driver MySQL/Maria : https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 - 
