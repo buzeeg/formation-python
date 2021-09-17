@@ -3,6 +3,7 @@ from random import randint
 
 from PySide2.QtCore import Slot
 from PySide2.QtWidgets import QMainWindow, QWidget, QPushButton, QVBoxLayout, QApplication
+from matplotlib.backend_bases import MouseEvent
 
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvas
@@ -18,6 +19,7 @@ class CurveWindow(QMainWindow):
         btnClickMe = QPushButton("Push Me!")
         btnClickMe.clicked.connect(self.clickMeSlot)
         self.canvas = FigureCanvas(Figure(figsize=(4, 3)))
+        self.canvas.mpl_connect("button_press_event", self.canvasClicked)
 
         layout = QVBoxLayout(mainWidget)
         layout.addWidget(btnClickMe)
@@ -27,6 +29,11 @@ class CurveWindow(QMainWindow):
         xValues = range(randint(10, 20))
         yValues = [x**2 for x in xValues]
         self.plt.plot(xValues, yValues, "r-o")
+
+    @Slot(MouseEvent)
+    def canvasClicked(self, event):
+        self.plt.scatter(event.xdata, event.ydata, marker="+", s=100)
+        self.canvas.draw()
 
     @Slot()
     def clickMeSlot(self):
