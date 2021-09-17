@@ -1,3 +1,4 @@
+from PySide6.QtCore import QSortFilterProxyModel
 from PySide6.QtWidgets import QTableView
 
 from DatabaseManager import DatabaseManager
@@ -28,7 +29,12 @@ class SqlTableView(QTableView):
                 and len(table[0]) > 0 \
                 and len(table[1]) > 0:
             model = SqlTableModel(table[1], table[0])
-            self.setModel(model)
+
+            # Proxy model for sort
+            proxyModel = QSortFilterProxyModel()
+            proxyModel.setSourceModel(model)
+            
+            self.setModel(proxyModel)
             self.setSortingEnabled(True)
 
         self.setWindowTitle("Mes datas")
